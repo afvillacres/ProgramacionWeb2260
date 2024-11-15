@@ -60,14 +60,17 @@ div > p{
     text-align: center;
 }
 
+section{
+    display:flow-root;
+    text-align: center;
+}
+
 section > aside{
     float: left;
 }
+
 footer {
-    border: 3px solid black;
-    box-shadow: 0 0 0 5px black;
+    border: 13px solid rgba(50, 50, 110, 0.338);
     border-radius: 13px;
-    padding: 10px;
     text-align: center;
-    margin-top: auto;
 }
