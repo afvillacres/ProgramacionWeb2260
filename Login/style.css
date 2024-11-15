@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.producto {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+div > p{
+    color: rgb(45, 45, 113);
+}
