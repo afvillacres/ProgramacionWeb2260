@@ -33,3 +33,23 @@ dd{
     font-size: 13 px;
 
 }
+
+footer{
+    text-align: center;
+}
+
+.estilop{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+#caracteristicas{
+    color: aqua;
+    font-family: sans-serif;
+    font-size: 24px;
+}
+
+.container{
+    text-align: center;
+}
