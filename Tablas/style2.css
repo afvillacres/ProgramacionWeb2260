@@ -1,0 +1,33 @@
+header{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); 
+    color: bisque;
+}
+
+caption{
+    background-color: brown;
+
+}
+
+input[type="text"]{
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid #000000;
+    color:aqua;
+    outline: none;
+}
+ 
+/* seudoclase o seudoelemento*/
+::placeholder {
+    color: ghostgray;
+}
+
+input[type="password"]::placeholder{
+    color:aqua;
+
+}
+
+#txtNombres::placeholder {
+    color:blueviolet;
+
+}
