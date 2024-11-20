@@ -1,0 +1,46 @@
+body {
+    background-color: #445357;
+}
+
+header{
+    background-color: green;
+    text-align: center;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+}
+
+section > aside{
+    float: left;
+    background-color: #353f42;
+    height: 2000px;
+    width: 200px;
+
+}
+
+section > img{
+    width: 400px;
+    align-items: center;
+}
+
+h2{
+    color: white;
+}
+
+.boton{
+    background-color: #28a745;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 100px;
+    padding: 12px 30px;
+}
+
+
+p{
+    text-align: center;
+}
+

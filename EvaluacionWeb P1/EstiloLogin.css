@@ -1,0 +1,40 @@
+
+body {
+    background-color: #445357;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; 
+}
+
+section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+input[type="text"], input[type="password"] {
+    width: 100%; 
+    padding: 10px; 
+    margin: 10px 0;
+    border: none;
+    font-size: 16px;
+}
+
+input[type="checkbox"] {
+    margin: 10px 0;
+}
+
+.boton {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(31deg, rgba(58,144,25,1) 0%, rgba(0,255,85,1) 80%);
+    color: white;
+    text-decoration:none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+}
