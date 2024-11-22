@@ -13,44 +13,68 @@
             <a href="#Ropa">Ropa</a>
             <a href="#Tecnologia">Tecnología</a>
             <a href="#Zapatos">Zapatos</a>
+            <a href="#Contactos">Contactos</a>
         </nav> 
     </header>
-    <div>
+
+    <div class="container">
         <section>
-            <aside>
+            <aside class="categorias">
                 <h2>Categorias</h2>
-                <a href="#Ropa" class="boton">Ropa</a>
+                <button  onclick="location.href='#Ropa'" class="boton">Ropa</button>
                 <br>
-                <a href="#Zapatos" class="boton">Zapatos</a>
+                <button onclick="location.href='#Zapatos'" class="boton">Zapatos</button>
                 <br>
-                <a href="#Tecnologia" class="boton">Tecnologia</a> 
+                <button onclick="location.href='#Tecnologia'" class="boton">Tecnologia</button> 
             </aside>
 
-            <section>
+            <section class="container">
                 <section id="Ropa">
                     <h3>Ropa</h3>
-                    <img src="Image/Camiseta.png" alt="Camiseta">
+                    <center><img src="Image/Camiseta.png" alt="Camiseta"></center>
                     <p>Camiseta de Rock</p>
                     <p>Precio: 15$</p>
                 </section>
     
                 <section id="Zapatos">
                     <h3>Zapatos</h3>
-                    <img src="Image/Zapatos.png" alt="Zapatillas">
+                    <center><img src="Image/Zapatos.png" alt="Zapatillas"></center>
                     <p>Zapatillas Converse</p>
                     <p>Precio: 30$</p>
                 </section>
     
                 <section id="Tecnologia">
                     <h3>Tecnologia</h3>
-                    <img src="Image/Laptop.png" alt="Laptop">
+                    <center><img src="Image/Laptop.png" alt="Laptop"></center>
                     <p>Laptop Gamer</p>
                     <p>Precio: 750$</p>
                 </section>
             </section>
 
+            <aside class="chat">
+                <h2>Chat de ayuda</h2>
+                <textarea placeholder="Escribe tu mensaje..."></textarea>
+                <br>
+                <br>
+                <br>
+                <input type="Submit"value="Enviar">
+            </aside>
         </section>
     </div>
     
 </body>
+<footer id="Contactos">
+    <div>
+        <h3>Sobre Nosotros</h3>
+        <div>
+            <a href="https://Facebook.com"><img src="Image/facebook.png" alt="Facebook" width="40px"></a>
+            <a href="https://Instagram.com"><img src="Image/Instagram.png" alt="Instagram" width="40px"></a>
+            <a href="https://WhatsApp.com"><img src="Image/WhatsApp.png" alt="WhatsApp" width="40px"></a>
+            <br>
+            <br>
+            <a href="Tablas.html" class="boton"> Inventario </a>
+        </div>
+    </div>
+    <p class="center">© 2024 Tienda de mercancia. Todos los derechos reservados.</p>
+</footer>
 </html>

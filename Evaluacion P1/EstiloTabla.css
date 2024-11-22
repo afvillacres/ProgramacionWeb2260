@@ -6,16 +6,38 @@ header{
     font-family: Georgia, 'Times New Roman', Times, serif
 }
 
-.tabla-productos thead {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.tabla-productos th, .tabla-productos td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-}
-
-.tabla-productos tbody tr:nth-child(even) {
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f9f9f9;
+}
+
+header h1 {
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+}
+
+div {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.tablaProductos {
+    margin: 20px auto;
+
+}
+
+.tablaProductos th {
+    background-color: #008000;
+    color: white;
+    border: 1px solid white;
+}
+
+.tablaProductos td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid white;
 }
