@@ -1,0 +1,33 @@
+*{
+    margin: 0px;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+header{
+    background-color: purple;
+
+}
+
+.section1{
+    height: 400px;
+    background-color: rgb(77, 77, 162);
+    background-image: url("Imagenes/images.jfif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+section2{
+    background-image: url("Imagenes/1500x1500.png");
+    height: 400px;
+}
+
+.section3{
+    height: 500px;
+    background-image: url("Imagenes/angular-niji-4V2.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+}
