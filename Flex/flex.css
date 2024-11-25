@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+}
+
+body{
+    height: 100%;
+
+}
+
+.container {
+    height: 500px;
+    width: 40%;
+}
+
+.container div{
+
+}
+
+.item
