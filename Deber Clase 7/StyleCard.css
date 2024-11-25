@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background-color: gray;
+}
+
+.background {
+    height: 100%;
+    background-image: url("Imagenes/wp2567153.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7); 
+    border-bottom: 3px solid #7b3eedb7;
+}
+
+.card-header:hover img {
+    opacity: 10; 
+    transition: opacity 0.9s ease, filter 0.1s ease;
+    filter: brightness(50%);
+    transform: rotateY(180deg);
+    transition: 1.02s;
+
+}
+
+h1 {
+    font-size: 45px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 5px;
+    color: #7b3eedb7;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 10px #000, 0 0 25px #a580eb, 0 0 15px #dd156ffc;
+    margin: 0;
+}
+
+.card {
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
+    margin: auto;
+    margin-top: 50px;
+    height: 600px;
+    background-color: beige;
+    width: 400px;
+    border-radius: 5px;
+    overflow:hidden;
+    
+}
+
+.card-header {
+    height: 350px;
+    position: relative;
+}
+
+.card-header img {
+    width: 100%; 
+    height: 100%; 
+    flex-direction:initial;
+}
+
+.view-details {
+    position: absolute;
+    left: 50%; 
+    bottom: 20px;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.068);
+    color: #01ff11;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    width: fit-content;
+}
+
+.view-details:hover {
+    background-color: rgba(40, 7, 132, 0.325);
+    color: #f6ff00;
+}
+
+.card-body {
+    padding: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.card-inf h2,.card-inf h4 {
+    margin-bottom: 10px;
+}
+
+/*.card-inf:hover h2{
+    color:#d3c275;
+}
+.card-inf:hover h4{
+    color:#d3c275;
+}
+
+.card-inf:hover h5{
+    color:#d3c275;
+}*/
+
+.card-inf:hover h2,.card-inf:hover h4, .card-inf:hover h5{
+    color:#d3c275;
+}
+.card-inf:hover{
+    background-color:#61440e;
+}
+
+h3.size,h3.color {
+    margin-top: 20px;
+}
+
+h4 {
+    color: rgb(54, 87, 87);
+}
+
+label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.card-content{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 4px;
+}
+
+.size{
+    margin-top: 50px;
+
+}
+
+.color{
+    margin-top: 35px;
+}
+
+.red{
+    border: 10px solid rgb(190, 28, 28);
+    background-color: rgb(190, 28, 28);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.orange{
+    border: 10px solid rgb(197, 133, 14);
+    background-color: rgb(197, 133, 14);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.yellow{
+    border: 10px solid yellow;
+    background-color: yellow;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.blue{
+    border: 10px solid rgb(45, 45, 161);
+    background-color: rgb(45, 45, 161);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.skyblue{
+    border: 10px solid rgb(94, 128, 238);
+    background-color: rgb(94, 128, 238);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.purple{
+    border: 10px solid purple;
+    background-color: purple;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.black{
+    border: 10px solid black;
+    background-color: black;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
+.green{
+    border: 10px solid rgb(44, 214, 25);
+    background-color: rgb(44, 214, 25);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
