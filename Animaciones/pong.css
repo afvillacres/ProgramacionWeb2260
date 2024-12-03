@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+}
+
+body{
+    background-color: beige;
+    height: 50%;
+}
+
+.pantalla {
+    position: relative;
+    width: 700px;
+    height: 600px; 
+    background: #222; 
+    margin: 500px;
+}
+
+@keyframes barra {
+    0% {
+        transform:translateX(0px) ;
+    }
+    50% {
+        transform: translateX(550px);
+
+    }
+    100% {
+        transform: translateX(0px);
+    }     
+    
+}
+
+@keyframes bolaMovimientos {
+    0%{
+    }
+    50%{
+        transform: translate(300px, 500px);
+    }
+    100%{
+        transform: translate(500px, 0px);
+    }
+}
+
+.barra{
+    background-color: rgb(4, 175, 35);
+    width: 150px;
+    height: 30px;
+    border-radius: 10%;
+    top: 540px;
+    position: absolute;
+    animation-name: barra;
+    animation-duration: 4.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-timing-function: steps(1000, end);
+}
+
+.bola{
+    background-color: rgb(240, 6, 6);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation-name: bolaMovimientos;
+    animation-duration: 2.33s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-timing-function: steps(950, end);
+}
