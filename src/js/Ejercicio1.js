@@ -11,7 +11,7 @@ let estudiantes = [
 /*Agregar nuevas calificaciones a los estudiantes.*/
 
 for (let i=0; i < estudiantes.length ; i++){
-    estudiantes.calificaciones[]
+    estudiantes.calificaciones[];
     console.log(i);
 }
 
