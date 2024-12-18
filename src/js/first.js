@@ -51,9 +51,12 @@ let let5 = [1,2,3,4,5,6,7,8,9];
 console.log(typeof let5);
 
 
-//tipos de nfuncion
+//tipos de funcion
 
-function saludar(){}
+function saludar(){
+    console.log("Hola");
+}
+console.log(saludar);
 console.log(typeof saludar);
 
 let simbolo = Symbol("mi simbolo");
