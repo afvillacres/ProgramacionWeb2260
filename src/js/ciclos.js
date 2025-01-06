@@ -49,3 +49,61 @@ while (carros[i]) {
     console.log(carros[i]);
     i++;
 }
+
+/*Agregar elementos dentro de un array*/ 
+
+// push() añade elementos al final de un arreglo
+
+let p = [1,2,3,4]
+p.push(5);
+console.log(p);
+
+// unshift() añade elementos al inicio de un arreglo
+
+let u = ['a','b','c','d']
+u.push('e');
+console.log(u);
+
+// splice() agrega o elimina elementos en cualquier posicion del arreglo
+
+let s = [1,3,4,5]
+s.splice(1,0,2);
+console.log(s);
+
+// Modificar elementos dentro de un array 
+// Podemos acceder a un elemento directamente dentro por su indice y modificar
+
+let w = ['Ana', 'Juan', 'Pedro','Martin']
+w[3]='Marcelo';
+console.log(w);
+
+// map() crea un nueglo con los valores modificados
+//let arregloMap= ['Azul', 'Amarillo', 'Rojo', 'Negro']
+let arregloMap = [10, 23, 35, 26]
+let arregloMapNew= arregloMap.map(num => num === 24 ? 5 : num);
+console.log(arregloMapNew)
+
+let arregloMapNew2= arregloMap.map(num => num === 23 ? 5 : num);
+console.log(arregloMapNew2)
+
+//splice()
+let q = [1, 2, 3]
+q.splice(1,1,6)
+console.log(q);
+
+//Eliminar
+// pop() elimina el ultimo elemento de un array
+let arregloColor= ['Azul', 'Amarillo', 'Rojo', 'Negro']
+arregloColor.pop();
+console.log(arregloColor);
+
+// shift elimina el primer elemento de un array
+let arregloColor2= ['Azul', 'Amarillo', 'Rojo', 'Negro']
+arregloColor2.shift();
+console.log(arregloColor2);
+
+//splice() para eliminar cualquier elemento dentro de un arreglo
+let arregloColor3= ['Azul', 'Amarillo', 'Rojo', 'Negro', 'Verde', 'Morado']
+arregloColor3.splice(1,3);  //se declara la posicio y la cantidad de elementos
+console.log(arregloColor3);
+
