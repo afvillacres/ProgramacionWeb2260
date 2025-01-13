@@ -156,7 +156,6 @@ console.log("");
 console.log("Venta de productos");
 ventas.realizarVenta('Fuze Tea', 2, inventario);
 ventas.realizarVenta('Audifonos', 6, inventario);//prueba de errores
-
 ventas.realizarVenta('Pizza', 3, inventario);
 ventas.realizarVenta('Audifonos', 3, inventario);
 ventas.realizarVenta('Cereales', 120, inventario);
