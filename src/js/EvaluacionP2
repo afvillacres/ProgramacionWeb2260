@@ -1,0 +1,167 @@
+class Producto {
+    constructor(nombre, precio, cantidad, categoria) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad=cantidad;
+        //this.categoria= [];
+        this.categoria = categoria;
+    }
+
+    /*registrarCategoria(categoria) {
+        this.categoria.push(categoria);
+        console.log(`El producto ${this.nombre} es de la categoria ${this.categoria}`);
+    }*/
+    
+    mostrarProducto(){
+        console.log(`Producto: ${this.nombre} Valor: ${this.precio} Cantidad: ${this.cantidad} Categoria: ${this.categoria}`);
+    }
+}
+
+class Inventario {
+    constructor() {
+        this.productos = [];
+    }
+
+    agregarProducto(producto) {
+        this.productos.push(producto);
+    }
+    
+    listarProductos(orden) {
+        if (orden === 'ascendente') {
+            return this.productos.sort((a, b) => a.precio - b.precio);
+        } else if (orden === 'descendente') {
+            return this.productos.sort((a, b) => b.precio - a.precio);
+        }
+    }
+    
+    filtrarProductos(categoria) {
+        return this.productos.filter(producto => producto.categoria === categoria);
+    }
+
+    aplicarDescuento(categoria, porcentaje) {
+        for (let key in this.productos) {
+            if (this.productos[key].categoria === categoria) {
+                this.productos[key].precio -= this.productos[key].precio * porcentaje / 100;
+            }
+        }
+    }
+
+}
+
+class Venta {
+    constructor() {
+        this.ventasRealizadas = [];
+    }
+    realizarVenta(nombreProducto, cantidad, inventario) {
+        let producto = null; 
+        for (let key in inventario.productos) {
+            if (inventario.productos[key].nombre === nombreProducto) {
+                producto = inventario.productos[key];
+                break;
+            }
+        }
+
+        if (!producto) {
+            return console.log(`Producto no esta registrado en el inventario ;c`);
+        }
+        if (producto.cantidad < cantidad) {
+            return console.log( `Producto no tienen la cantidad salicitada`);
+        }
+        producto.cantidad -= cantidad;
+        this.registrarVenta(producto, cantidad);
+        return console.log('Se ha realizado la venta con exito :D');
+    }
+
+    registrarVenta(producto, cantidad) {
+        const fecha = new Date();
+        this.ventasRealizadas.push({
+            producto,
+            cantidad,
+            fecha
+        });
+    }
+
+    generarReporte(inventario) {
+        const totalIngresos = this.ventasRealizadas.reduce((total, venta) => total + (venta.producto.precio * venta.cantidad), 0);
+        const productoMasVendido = this.ventasRealizadas.reduce((max, venta) => venta.cantidad > max.cantidad ? venta : max, this.ventasRealizadas[0]);
+
+        return {
+            inventarioActualizado: inventario.productos,
+            ventasRealizadas: this.ventasRealizadas,
+            totalIngresos,
+            productoMasVendido: productoMasVendido ? productoMasVendido.producto : null
+        };
+
+        
+    }
+
+    imprimirReporte(inventario) {
+        const reporte = this.generarReporte(inventario);
+        console.log("Inventario Actualizado:");
+        for (let i = 0; i < reporte.inventarioActualizado.length; i++) {
+            const producto = reporte.inventarioActualizado[i];
+            console.log(`Nombre: ${producto.nombre}, Precio: ${producto.precio}, Cantidad: ${producto.cantidad}, Categoría: ${producto.categoria}`);
+        }
+        console.log("Ventas Realizadas:");
+        for (let i = 0; i < reporte.ventasRealizadas.length; i++) {
+            const venta = reporte.ventasRealizadas[i];
+            console.log(`Producto: ${venta.producto.nombre}, Cantidad: ${venta.cantidad}, Fecha: ${venta.fecha}`);
+        }
+        console.log(`Total de Ingresos: ${reporte.totalIngresos}`);
+        console.log(`Producto Más Vendido: ${reporte.productoMasVendido ? reporte.productoMasVendido.nombre : 'N/A'}`);
+    }
+
+    
+}
+
+
+const producto1 = new Producto("Fuze Tea", 0.75, 6, "Bebida");
+producto1.mostrarProducto();
+const inventario = new Inventario();
+inventario.agregarProducto(producto1);
+const ventas = new Venta();
+const producto2 = new Producto("Cereales", 8.00, 220,'Cereales');
+const producto3 = new Producto('Adifonos', 7.55, 5, 'Tecnologia');
+const producto4 = new Producto('Zapatillas', 55.75, 10, 'Ropa');
+
+console.log("Se agregaron otros productos");
+inventario.agregarProducto(producto2);
+inventario.agregarProducto(producto3);
+inventario.agregarProducto(producto4);
+
+console.log('Descuento a Ropa');
+inventario.aplicarDescuento('Ropa', 10);
+
+console.log('');
+console.log("Productos de forma ascendentes");
+
+const productosOrdenados = inventario.listarProductos('ascendente');
+console.log("Productos ordenados:");
+for (let i = 0; i < productosOrdenados.length; i++) {
+    const producto = productosOrdenados[i];
+    console.log(`Nombre: ${producto.nombre}, Precio: ${producto.precio}, Cantidad: ${producto.cantidad}, Categoría: ${producto.categoria}`);
+}
+
+console.log('');
+console.log("Productos de forma descendentes");
+
+const productosOrdenadosD = inventario.listarProductos('descendente');
+console.log("Productos ordenados (descendente):");
+for (let i = 0; i < productosOrdenadosD.length; i++) {
+    const producto = productosOrdenadosD[i];
+    console.log(`Nombre: ${producto.nombre}, Precio: ${producto.precio}, Cantidad: ${producto.cantidad}, Categoría: ${producto.categoria}`);
+}
+
+console.log("");
+console.log("Venta de productos");
+ventas.realizarVenta('Fuze Tea', 2, inventario);
+ventas.realizarVenta('Audifonos', 6, inventario);//prueba de errores
+
+ventas.realizarVenta('Pizza', 3, inventario);
+ventas.realizarVenta('Audifonos', 3, inventario);
+ventas.realizarVenta('Cereales', 120, inventario);
+
+console.log("Reporte de Inventario");
+ventas.imprimirReporte(inventario);
+
+
