@@ -1,14 +1,16 @@
 //Sistema de ventas
 
-class Producto{
+class Producto {
     static contadorProductos = 0;
-    
-    constructor(nombre, precio, categoria, stock){
-        this._idProducto = ++Producto.contadorProductos;//Preincrementos= primero aumenta y luego asigna
+    static inventario = [];
+
+    constructor(nombre, precio, categoria, stock) {
+        this._idProducto = ++Producto.contadorProductos; // Preincremento
         this._nombre = nombre;
         this._precio = precio;
         this._categoria = categoria;
         this._stock = stock;
+        Producto.inventario.push(this); // Agregar al inventario global, bueno aqui es aplicar a una misma categoria y no de orden en orden o 
     }
 
     get idProducto() {
@@ -43,59 +45,9 @@ class Producto{
         this._stock = stock;
     }
 
-    toString() {
-        return `Producto [ID: ${this._idProducto}, Nombre: ${this._nombre}, Precio: ${this._precio}, Categoria: ${this._categoria}]`;
-    }
-}
-
-
-class Orden{
-    static contadorOrdenes = 0;
-    static get MAX_PRODUCTOS(){
-        return 5;
-    }
-
-    constructor(){
-        this.idOrden = ++Orden.contadorOrdenes;
-        this._productos = [];
-        this._contadorProductosAgregados = 0;
-    }
-
-    get inOrden(){
-        return this._idOrden;
-    }
-
-    agregarProducto(producto){
-        if(this._productos.length < Orden.MAX_PRODUCTOS){
-            if (producto.getStock() > 0) {
-                this._productos.push(producto);
-                producto.setStock(producto.getStock() - 1); // Reducir el stock del producto
-                console.log(`Producto agregado: ${producto.nombre}. Stock restante: ${producto.getStock()}`);
-            } else {
-                console.log(`No hay suficiente stock para agregar el producto ${producto.nombre}`);
-            }
-        } else {
-            //indica que no se pueden agregar mas productos a La Orden
-            console.log('No se pueden agregar mas productos a la orden :c');
-        }
-    }
-
-    calcularTotal(){
-        let totalVenta = 0;
-        for(const producto of this._productos){
-            totalVenta += producto._precio;  // totalVenta = totalVenta + producto.precio;
-        }
-        return totalVenta;
-    }
-
-    calcularImpuesto() {
-        return this.calcularTotal() * 0.16;
-    }
-
-    aplicarDescuento(categoria, porcentajeDescuento) {
-        for (const producto of this._productos) {
+    static aplicarDescuentoPorCategoria(categoria, porcentajeDescuento) {
+        for (const producto of Producto.inventario) {
             if (producto.getCategoria() === categoria) {
-                // Aplica el descuento en el precio del producto
                 const descuento = producto.precio * (porcentajeDescuento / 100);
                 producto.precio -= descuento;
                 console.log(`Descuento aplicado al producto ${producto.nombre} de la categoría ${categoria}. Nuevo precio: ${producto.precio}`);
@@ -103,39 +55,100 @@ class Orden{
         }
     }
 
-    mostrarOrden() {
-        let productosOrden = '';
-        for (const producto of this._productos) {
-            productosOrden += '\n{' + producto.toString() + '}';
+    static mostrarProductosDisponibles() {
+        console.log("Productos disponibles en el inventario:");
+        for (const producto of Producto.inventario) {
+            if (producto.getStock() > 0) {
+                console.log(`ID: ${producto.idProducto}, Nombre: ${producto.nombre}, Precio: ${producto.precio}, Categoría: ${producto.getCategoria()}, Stock: ${producto.getStock()}`);
+            }
         }
-        console.log(`Orden: ${this.idOrden}, Total: ${this.calcularTotal()}, Productos: ${productosOrden}`);
+    }
+
+    toString() {
+        return `Producto [ID: ${this._idProducto}, Nombre: ${this._nombre}, Precio: ${this._precio}, Categoría: ${this._categoria}, Stock: ${this._stock}]`;
+    }
+}
+
+class Orden {
+    static contadorOrdenes = 0;
+    static get MAX_PRODUCTOS() {
+        return 5;
+    }
+
+    constructor() {
+        this.idOrden = ++Orden.contadorOrdenes;
+        this._productos = [];
+    }
+
+    get inOrden() {
+        return this._idOrden;
+    }
+
+    agregarProducto(producto) {
+        if (this._productos.length < Orden.MAX_PRODUCTOS) {
+            if (producto.getStock() > 0) {
+                this._productos.push(producto);
+                producto.setStock(producto.getStock() - 1); // Reducir el stock del producto
+                console.log(
+                    `Producto agregado: ${producto.nombre}. Stock restante: ${producto.getStock()}`
+                );
+            } else {
+                console.log(
+                    `El producto ${producto.nombre} no tiene stock disponible.`
+                );
+            }
+        } else {
+            console.log("No se pueden agregar más productos a la orden.");
+        }
+    }
+
+    calcularTotal() {
+        let totalVenta = 0;
+        for (const producto of this._productos) {
+            totalVenta += producto.precio; // Total de los productos
+        }
+        const impuesto = totalVenta * 0.16; // Calcular impuesto
+        return totalVenta + impuesto; // Total con impuesto incluido
+    }
+
+    mostrarOrden() {
+        let productosOrden = "";
+        for (const producto of this._productos) {
+            productosOrden += "\n{" + producto.toString() + "}";
+        }
+        console.log(
+            `Orden: ${this.idOrden}, Total (con impuesto): ${this.calcularTotal()}, Productos: ${productosOrden}`
+        );
     }
 }
 
 // Crear un nuevo producto
-let producto1 = new Producto('Laptop', 500, 'Portatiles', 15);
-let producto2 = new Producto('Mouse', 10, 'Inalambricos', 3);
+let producto1 = new Producto("Laptop", 500, "Portatiles", 15);
+let producto2 = new Producto("Mouse", 10, "Inalambricos", 3);
+let producto3 = new Producto("Teclado", 30, "NoInalambricos", 16);
+let producto4 = new Producto("Auriculares", 20, "Inalambricos", 14);
+let producto5 = new Producto("Microfono", 15, "NoInalambricos", 0);
 
+// Mostrar productos disponibles
+Producto.mostrarProductosDisponibles();// mas que nada es para ver los cambios en el invetario de productos
+
+// Aplicar descuento global a una categoría
+Producto.aplicarDescuentoPorCategoria("Inalambricos", 15);
+
+// Crear una nueva orden y agregar productos
 let orden1 = new Orden();
 orden1.agregarProducto(producto1);
 orden1.agregarProducto(producto2);
+orden1.agregarProducto(producto3);
 orden1.mostrarOrden();
 
-let producto3 = new Producto('Teclado', 30, 'NoInalambricos', 16);
-let producto4 = new Producto('Auriculares', 20, 'Inalambricos',14);
-let producto5 = new Producto('Microfono', 15, 'NoInalambricos', 3);
-
+// Crear otra orden y agregar más productos
 let orden2 = new Orden();
-orden2.agregarProducto(producto1);
-orden2.agregarProducto(producto2);
-orden2.agregarProducto(producto3);
-orden2.agregarProducto(producto5);
-orden2.agregarProducto(producto5);
 orden2.agregarProducto(producto4);
-
-orden1.aplicarDescuento('Inalambricos', 10);
-
+orden2.agregarProducto(producto5); // Producto sin stock, no se agregará
 orden2.mostrarOrden();
+Producto.mostrarProductosDisponibles();
+
 
 /*Modificador STATIC se utiliza para acceder directamente a travez de la clase
 Las propiedades o metodos STATIC no requiere que se creen que se creen una instancia de la clase para ser utilizados
