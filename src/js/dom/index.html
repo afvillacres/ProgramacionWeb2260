@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .title{
+            color: magenta;
+        }
+
+
+        #btnMostrar {
+            margin-bottom: 20px;
+        }
+        
+    </style>
+    <title>Manejo de DOM conm JS</title>
+</head>
+<body>
+    <h1 id="titulo" class="title">Manejo de DOM con JS</h1>
+    <h1> Manejo de DOM con JS</h1>
+    
+    <button id="btnMostrar" onclick="mostrar()" type="button">Mostrar las Empanadas \( °O°)/</button>
+
+    <bar> </bar>
+    <div id="imagen-container">
+        <img id="imagen" src="imagen1.jpg" alt="Imagen" width="300">
+    </div>
+
+    <script>
+        const imagenes = ["imagen1.jpg", "imagen2.jpg", "imagen3.jpg", "imagen4.jpg", "imagen5.jpg"];//   Mi arreglo de objetos
+        let index = 0;
+
+        /*function mostrar() {
+            setInterval(function() {
+                index = index + 1;
+                if (index >= imagenes.length) {
+                    index = 0;
+                }
+                document.getElementById("imagen").src = imagenes[index];
+            }, 2000);
+        }*/
+
+        function mostrar() {
+            function cambiarImagen() {
+                index = index + 1;
+                if (index >= imagenes.length) {
+                    index = 0;
+                }
+                document.getElementById("imagen").src = imagenes[index];
+                setTimeout(cambiarImagen, 2000); 
+            }
+            setTimeout(cambiarImagen, 2000);
+        }
+
+    </script>
+</body>
+</html>
