@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilo.css">
+    <title>Manejo de eventos con DOM JS</title>
+</head>
+<body>
+
+    <h1 id="titulo">Panel de Control Interactivo</h1>
+
+    <button id="togglePanel">Mostrar Panel</button>
+
+    <div id="panel">
+        <h2>Configuración</h2>
+        
+        <label for="theme">Selecciona un tema:</label>
+        <select id="theme">
+            <option value="claro">Claro</option>
+            <option value="oscuro">Oscuro</option>
+            <option value="azul">Azul</option>
+        </select>
+
+        <br><br>
+
+        <label for="newTitle">Nuevo título:</label>
+        <input type="text" id="newTitle" placeholder="Escribe un nuevo título">
+
+        <br><br>
+
+        <label for="comentariosCheckbox">Habilitar área de comentarios:</label>
+        <input type="checkbox" id="comentariosCheckbox">
+
+        <br><br>
+
+        <div id="comentarios">
+            <textarea id="comentariosTextarea" placeholder="Escribe tu comentario..."></textarea>
+        </div>
+
+        <br>
+
+        <label for="newItem">Agregar un nuevo elemento a la lista:</label>
+        <input type="text" id="newItem" placeholder="Escribe un nuevo elemento">
+        <button id="addItem">Agregar</button>
+
+        <br><br>
+
+        <ul id="lista">
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+        </ul>
+    </div>
+
+    <script>
+        // Mostrar/Ocultar el panel
+        const togglePanelButton = document.getElementById('togglePanel');
+        const panel = document.getElementById('panel');
+        
+        togglePanelButton.addEventListener('click', () => {
+            if (panel.style.display === 'none' || panel.style.display === '') {
+                panel.style.display = 'block';
+                togglePanelButton.textContent = 'Ocultar Panel';
+            } else {
+                panel.style.display = 'none';
+                togglePanelButton.textContent = 'Mostrar Panel';
+            }
+        });
+
+        // Cambiar el tema de la pagina
+        const themeSelect = document.getElementById('theme');
+        themeSelect.addEventListener('change', () => {
+            const theme = themeSelect.value;
+            if (theme === 'claro') {
+                document.body.style.backgroundColor = '#fff';
+                document.body.h1.style.color = '#333';
+            } else if (theme === 'oscuro') {
+                document.body.style.backgroundColor = '#333';
+                document.body.h1.style.color = '#fff';
+            } else if (theme === 'azul') {
+                document.body.style.backgroundColor = '#007BFF';
+                document.body.h1.style.color = '#333';
+            }
+        });
+
+    </script>
+
+</body>
+</html>

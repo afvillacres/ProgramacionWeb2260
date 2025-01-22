@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#panel {
+    display: none;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+#comentarios {
+    display: none;
+    margin-top: 10px;
+}
+
+#comentarios textarea {
+    width: 100%;
+    height: 100px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin: 5px 0;
+    background-color: #f9f9f9;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
